@@ -16,11 +16,23 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
     }
 }
 
@@ -30,4 +42,32 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:$constraintlayout"
     implementation "com.android.support:design:$supportLibVersion"
     implementation "com.android.support.constraint:constraint-layout:$constraintlayout"
+
+    implementation (name: 'jdPaySDK_Android_JDMall-2.1.5',ext: 'aar')
+    implementation (name: 'yctridingsdk-release',ext: 'aar')
+    /*网络请求*/
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.trello:rxlifecycle:1.0'
+    implementation 'com.trello:rxlifecycle-components:1.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+
+    /*开通微信免密*/
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+
+    /*二维码*/
+    implementation 'com.google.zxing:core:3.3.0'
+
+    /*开通京东免密*/
+//    implementation(name: 'jdpayauthor-release', ext: 'aar')
+
+    /*glide*/
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    /*腾讯UI组件*/
+    implementation 'com.jungly:gridPasswordView:0.3'
+
+
 }
