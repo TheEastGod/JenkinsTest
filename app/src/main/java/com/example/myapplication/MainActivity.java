@@ -2,8 +2,11 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.yct.yctridingsdk.view.QRCodeFragment;
+import com.yct.yctridingsdk.view.RidingRecordListActivity;
+import com.yct.yctridingsdk.view.paymanage.NoPayPswListActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,5 +20,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         QRCodeFragment qrCodeFragment = QRCodeFragment.newInstance(userId,certificate);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_content, qrCodeFragment).show(qrCodeFragment).commit();
+
+        findViewById(R.id.button_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NoPayPswListActivity.start(MainActivity.this);
+            }
+        });
+
+        findViewById(R.id.button_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RidingRecordListActivity.start(MainActivity.this);
+            }
+        });
     }
 }
